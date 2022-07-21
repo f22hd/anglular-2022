@@ -1,4 +1,5 @@
 
-
-<h1>{{value}} {{add}}</h1>
-<button type="button" (click)="sendData()">Delete</button>
+<h1 *ngIf="data.length == 0">Loading...</h1>
+<ul>
+  <li *ngFor="let i of data">{{i.name}} - {{i.stateProvince}}</li>
+</ul>

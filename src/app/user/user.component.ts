@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { University } from '../app.type';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-user',
@@ -11,16 +14,26 @@ export class UserComponent implements OnInit,OnChanges,OnDestroy {
   @Input() add:number = 0;
   @Output() onClick = new EventEmitter<number>();
 
-  constructor() { }
+  data:University[] = [];
 
+  constructor(private dataService:DataService) {
 
-  ngOnInit(): void {
-    console.log('ngOnInit');
   }
 
 
+  async ngOnInit() {
+    console.log('ngOnInit');
+    this.data = await this.dataService.getData().toPromise() as University[];
+    this.data = this.data.map(obj => {
+      obj.stateProvince = obj['state-province'];
+      return obj;
+    })
+  }
+
+
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges',changes);
+    // console.log('ngOnChanges',changes);
   }
 
   sendData(){
@@ -28,6 +41,6 @@ export class UserComponent implements OnInit,OnChanges,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy',this.value);
+    // console.log('ngOnDestroy',this.value);
   }
 }

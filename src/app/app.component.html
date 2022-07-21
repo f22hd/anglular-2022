@@ -3,9 +3,9 @@
 
 <button type="button" title="Button" (click)="toggle()">Toggle</button>
 
-<div *ngFor="let i of numbers">
-    <app-user [value]="i" [add]="i + 1" (onClick)="print($event)"></app-user>
-</div>
+
+    <app-user  (onClick)="print($event)"></app-user>
+
 
 
 
