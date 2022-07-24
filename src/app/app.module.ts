@@ -6,16 +6,59 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UniversitiesComponent } from './universities/universities.component';
+import { UniversitiesDetailsComponent } from './universities-details/universities-details.component';
+
+import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UniNotFoundComponent } from './uni-not-found/uni-not-found.component';
+
+
+const routes:Routes = [
+  {
+    path:'universities',
+    children:[
+      {
+        path: '',
+        component: UniversitiesComponent,
+      },
+      {
+        path:':name',
+        component: UniversitiesDetailsComponent
+      },
+      {
+        path: '**',
+        component: UniNotFoundComponent
+      }
+    ]
+
+  },
+
+
+  {
+    path: '',
+    redirectTo:'universities',
+    pathMatch:'full'
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    UniversitiesComponent,
+    NotFoundComponent,
+    UniNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
