@@ -8,3 +8,9 @@ export type University = {
     "web_pages": string[],
     "domains": string[]
 };
+
+export type UserType = {
+  username:string;
+  email:string;
+  city:string;
+}

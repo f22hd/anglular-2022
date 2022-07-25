@@ -13,6 +13,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UniNotFoundComponent } from './uni-not-found/uni-not-found.component';
 import { PrintDataPipe } from './print-data.pipe';
+import { AComponent } from './a/a.component';
+import { BComponent } from './b/b.component';
+import { CComponent } from './c/c.component';
 
 
 const routes:Routes = [
@@ -56,7 +59,10 @@ const routes:Routes = [
     NotFoundComponent,
     UniNotFoundComponent,
     UniversitiesDetailsComponent,
-    PrintDataPipe
+    PrintDataPipe,
+    AComponent,
+    BComponent,
+    CComponent
   ],
   imports: [
     BrowserModule,
