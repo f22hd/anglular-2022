@@ -23,4 +23,12 @@ export class UniversitiesDetailsComponent implements OnInit {
 
   }
 
+
+
+
+
+  clickMe(){
+    alert('HI');
+  }
+
 }
