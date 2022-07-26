@@ -16,6 +16,8 @@ import { PrintDataPipe } from './print-data.pipe';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { CComponent } from './c/c.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes:Routes = [
@@ -38,6 +40,10 @@ const routes:Routes = [
 
   },
 
+  {
+    path:'register',
+    component: RegisterComponent
+  },
 
   {
     path: '',
@@ -62,12 +68,14 @@ const routes:Routes = [
     PrintDataPipe,
     AComponent,
     BComponent,
-    CComponent
+    CComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

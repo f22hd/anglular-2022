@@ -1,0 +1,49 @@
+
+<section>
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" formControlName="username" />
+
+        <span *ngIf="form.controls['username']?.errors?.['required']  && (form.controls['username']?.touched || form.controls['username']?.dirty)">Required</span>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" formControlName="password" />
+        <span *ngIf="form.controls['password']?.errors?.['required']  && (form.controls['password']?.touched || form.controls['password']?.dirty)">Required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" formControlName="email" />
+        <span *ngIf="form.controls['email']?.errors?.['required']  && (form.controls['email']?.touched || form.controls['email']?.dirty)">Required</span>
+        <span *ngIf="form.controls['email']?.errors?.['email']  && (form.controls['email']?.touched || form.controls['email']?.dirty)">invalid email</span>
+      </div>
+
+      <div class="form-group">
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday" formControlName="birthDay" />
+        <span *ngIf="form.controls['birthDay']?.errors?.['required']  && (form.controls['birthDay']?.touched || form.controls['birthDay']?.dirty)">Required</span>
+      </div>
+
+
+      <div class="form-group">
+        <label for="agreement">agreement:</label>
+        <input type="checkbox" name="agreement" formControlName="agreement" />
+        <span *ngIf="form.controls['agreement']?.errors?.['required']  && (form.controls['agreement']?.touched || form.controls['agreement']?.dirty)">Required</span>
+      </div>
+
+      <button type="submit" name="submit"
+
+
+      >Register</button>
+
+
+  </form>
+
+</section>
