@@ -1,0 +1,30 @@
+section{
+  display:flex;
+  align-items:center;
+  margin:auto;
+  justify-content:center;
+  height: 100vh;
+  width: 100vh;
+  text-align:center;
+  flex-direction:column;
+}
+
+form{
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 20px;
+  min-width: 300px;
+  max-width: 90%;
+}
+
+.form-group{
+  margin-bottom: 20px;
+  display:flex;
+  flex-direction:column;
+  text-align:left;
+}
+
+input{
+  border-radius: 5px;
+  height: 25px;
+}

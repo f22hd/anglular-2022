@@ -1,0 +1,41 @@
+<section>
+
+  <h1>Register</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()" *ngIf="form.controls">
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" formControlName="firstName" name="firstName">
+      <app-alert-error [formControl]="form.controls['firstName'] | toFormControl"></app-alert-error>
+
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Email:</label>
+      <input type="text" formControlName="email" name="Email">
+      <app-alert-error [formControl]="form.controls['email'] | toFormControl"></app-alert-error>
+
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" name="password">
+      <app-alert-error [formControl]="form.controls['password'] | toFormControl"></app-alert-error>
+
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Agreement:</label>
+      <input type="checkbox" formControlName="agreement" name="Agreement">
+      <app-alert-error [formControl]="form.controls['agreement'] | toFormControl"></app-alert-error>
+    </div>
+
+
+    <button type="submit" name="submit" [disabled]="!form.valid">Register</button>
+
+  </form>
+
+
+
+</section>

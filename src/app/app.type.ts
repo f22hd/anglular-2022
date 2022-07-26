@@ -14,3 +14,8 @@ export type UserType = {
   email:string;
   city:string;
 }
+
+export type minLegthErrorType = {
+  actualLength:number;
+  requiredLength:number;
+}

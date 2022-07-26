@@ -16,6 +16,11 @@ import { PrintDataPipe } from './print-data.pipe';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { CComponent } from './c/c.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { AlertErrorComponent } from './alert-error/alert-error.component';
+import { ToFormControlPipe } from './to-form-control.pipe';
+import { MinLegthErrorPipe } from './min-legth-error.pipe';
 
 
 const routes:Routes = [
@@ -34,10 +39,13 @@ const routes:Routes = [
         path: '**',
         component: UniNotFoundComponent
       }
-    ]
+    ],
 
   },
-
+  {
+    path:'register',
+    component:RegisterComponent
+  },
 
   {
     path: '',
@@ -62,12 +70,17 @@ const routes:Routes = [
     PrintDataPipe,
     AComponent,
     BComponent,
-    CComponent
+    CComponent,
+    RegisterComponent,
+    AlertErrorComponent,
+    ToFormControlPipe,
+    MinLegthErrorPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

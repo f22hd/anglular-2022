@@ -1,0 +1,6 @@
+<div *ngIf="formControl.errors">
+  <div *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)" class="alert">
+    <span *ngIf="formControl.errors?.['required']">Required</span>
+    <span *ngIf="formControl.errors?.['minlength']">{{formControl.errors?.['minlength'] | minLegthError}}</span>
+  </div>
+</div>
