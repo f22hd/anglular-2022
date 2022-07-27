@@ -17,7 +17,6 @@ import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { CComponent } from './c/c.component';
 import { RegisterComponent } from './register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes:Routes = [
@@ -42,7 +41,7 @@ const routes:Routes = [
 
   {
     path:'register',
-    component: RegisterComponent
+    loadChildren: () => import('./register/register.module').then(r => r.RegisterModule)
   },
 
   {
@@ -69,13 +68,11 @@ const routes:Routes = [
     AComponent,
     BComponent,
     CComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
